@@ -22,7 +22,7 @@ encrypted text to the user
 @server.route("/", methods=['GET', 'POST'])
 def index():
     """
-    welcome page
+    main page with input fields
     """
     if request.method == "POST":
        name = request.form["name_field"]
@@ -41,7 +41,7 @@ def index():
 @server.route("/api/encrypt/<string:clear_text>", methods=['GET'])
 def cesear_api(clear_text: str):
     """
-    api hello
+    api cesear cipher
     """   
     return jsonify({"clear_text": clear_text, "encrypted_text": encrypt(clear_text) })
 if __name__ == '__main__':
