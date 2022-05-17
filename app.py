@@ -33,7 +33,12 @@ def index():
            raise ValueError("Input not valid integer!")
 
        encrypted = encrypt(name, cipher_)
-       return f"Encrypted Text: {encrypted}" 
+       
+       res = {'message': name, 
+              'cipher_len': cipher_, 
+              'encrypted': encrypted
+            }
+       return render_template("results.html", **res)
 
     return render_template("index.html")
 
